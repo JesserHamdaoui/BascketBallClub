@@ -1,0 +1,5 @@
+@function dark-comp($color) {
+    $comp-color: complement($color);
+    $dark-comp-color: darken($comp-color, 30%);
+    @return $dark-comp-color;
+}

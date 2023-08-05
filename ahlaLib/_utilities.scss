@@ -1,0 +1,146 @@
+@use 'sass:math';
+
+
+$utilities: (
+    'font-size': (
+        'prefix': 'sz',
+        'values': (
+            'default': $basic-font-size,
+            'sm': $basic-font-size * 0.75,
+            'md': $basic-font-size * 1.5,
+            'lg': $basic-font-size * 2,
+            'xl': $basic-font-size * 3,
+            'xxl': $basic-font-size * 4,
+        ),
+    ),
+
+    'display': (
+        'prefix': 'd',
+        'values': (
+            'n': none,
+            'b': block,
+            'i': inline,
+            'i-b': inline-block,
+            'f': flex
+        )
+    ),
+    'margin': (
+        'prefix': 'm',
+        'values': (
+            '1': $basic-margin,
+            '2': $basic-margin * 2,
+            '3': $basic-margin * 3,
+            '4': $basic-margin * 4,
+            '5': $basic-margin * 5
+        )
+    ),
+    'margin-top': (
+        'prefix': 'mt',
+        'values': (
+            '1': $basic-margin,
+            '2': $basic-margin * 2,
+            '3': $basic-margin * 3,
+            '4': $basic-margin * 4,
+            '5': $basic-margin * 5
+        )
+    ),
+    'margin-bottom': (
+        'prefix': 'mb',
+        'values': (
+            '1': $basic-margin,
+            '2': $basic-margin * 2,
+            '3': $basic-margin * 3,
+            '4': $basic-margin * 4,
+            '5': $basic-margin * 5
+        )
+    ),
+    'margin-left': (
+        'prefix': 'ml',
+        'values': (
+            '1': $basic-margin,
+            '2': $basic-margin * 2,
+            '3': $basic-margin * 3,
+            '4': $basic-margin * 4,
+            '5': $basic-margin * 5
+        )
+    ),
+    'margin-right': (
+        'prefix': 'mr',
+        'values': (
+            '1': $basic-margin,
+            '2': $basic-margin * 2,
+            '3': $basic-margin * 3,
+            '4': $basic-margin * 4,
+            '5': $basic-margin * 5
+        )
+    ),
+    'padding': (
+        'prefix': 'p',
+        'values': (
+            '1': $basic-padding,
+            '2': $basic-padding * 2,
+            '3': $basic-padding * 3,
+            '4': $basic-padding * 4,
+            '5': $basic-padding * 5
+        )
+    ),
+    'padding-top': (
+        'prefix': 'pt',
+        'values': (
+            '1': $basic-padding,
+            '2': $basic-padding * 2,
+            '3': $basic-padding * 3,
+            '4': $basic-padding * 4,
+            '5': $basic-padding * 5
+        )
+    ),
+    'padding-bottom': (
+        'prefix': 'pb',
+        'values': (
+            '1': $basic-padding,
+            '2': $basic-padding * 2,
+            '3': $basic-padding * 3,
+            '4': $basic-padding * 4,
+            '5': $basic-padding * 5
+        )
+    ),
+    'padding-left': (
+        'prefix': 'pl',
+        'values': (
+            '1': $basic-padding,
+            '2': $basic-padding * 2,
+            '3': $basic-padding * 3,
+            '4': $basic-padding * 4,
+            '5': $basic-padding * 5
+        )
+    ),
+    'padding-right': (
+        'prefix': 'pr',
+        'values': (
+            '1': $basic-padding,
+            '2': $basic-padding * 2,
+            '3': $basic-padding * 3,
+            '4': $basic-padding * 4,
+            '5': $basic-padding * 5
+        )
+    )
+);
+
+
+@each $proprety, $map in $utilities {
+    $prefix: map-get($map, 'prefix');
+    $values: map-get($map, 'values');
+    @debug $values;
+
+    @each $key, $val in $values {
+        @if($key == 'default') {
+            .#{$prefix} {
+                #{$proprety}: $val;
+            }
+        } @else {
+            .#{$prefix}-#{$key} {
+                #{$proprety}: $val;
+            }
+        }
+    }
+}

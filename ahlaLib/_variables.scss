@@ -1,0 +1,30 @@
+$primary: #e28743;
+$secondary: #1f8f80;
+$error: #c42525;
+$info: #e2fa06;
+
+$colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'error': $error,
+    'info': $info,
+    'black': black,
+    'white': white,
+);
+
+@debug map-get($colors, 'info');
+@debug map-merge($colors, ('ahla': black));
+@debug map-remove($colors, 'ahla');
+
+$basic-border-radius: 2.5rem;
+
+$basic-margin: 15px;
+$basic-padding: 15px;
+
+$basic-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 4px;
+$navbar-box-shadow: 0 1px 10px 1px rgba(0,0,0,0.2);
+
+$basic-font-size: 1rem;
+$font-size-sm: $basic-font-size * 0.75;
+$font-size-lg: $basic-font-size * 1.5;
+$font-size-xl: $basic-font-size * 3;
